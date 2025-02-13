@@ -11,8 +11,8 @@ tokenCount.innerHTML = tokens;
 let isVibrate = true;
 let isVolume = true;
 
-let audio = new Audio();
 function tapSound() {
+    let audio = new Audio();
     audio.src = "assets/tap_sound.mp3";
     audio.autoplay = true;
 }
@@ -27,24 +27,6 @@ mainButton.addEventListener('touchend', () => {
     tokenCount.innerHTML = tokens;
     if(isVibrate) {navigator.vibrate(100);}
     if(isVolume) {tapSound();}
-    ///////////////////////
-    const test = document.getElementById('test');
-
-    test.style.transform = 'translateY(0)';
-    test.style.opacity = '1';
-
-// Запускаем анимацию
-    setTimeout(() => {
-        test.style.transform = 'translateY(5%)'; // Поднимаем вверх
-        test.style.opacity = '0.5'; // Прозрачность
-    }, 10); // Небольшая задержка для запуска анимации
-
-// Убираем элемент после анимации
-    setTimeout(() => {
-        test.style.transform = 'translateY(0)'; // Сбрасываем
-        test.style.opacity = '1'; // Сбрасываем
-    }, 500); // Время анимации
-    ///////////////////////////
 })
 
 mainText.addEventListener('click', () => {
