@@ -1,11 +1,8 @@
-html, body {
+* {
+    -webkit-tap-highlight-color: transparent;
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-* {
-    -webkit-tap-highlight-color: transparent;
 }
 
 #main-text {
@@ -133,4 +130,14 @@ html, body {
     width: 20%;
     top: 5%;
     left: 76%;
+}
+
+.particle {
+    pointer-events: none;
+    position: fixed;
+    font-size: 500%;
+    height: auto;
+    width: auto;
+    top: -5%;
+    left: -5%;
 }
