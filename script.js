@@ -72,19 +72,32 @@ function createParticle(x, y) {
     }
 }
 
+function isPhone(e) {
+    // считываем информацию о девайсе пользователя
+    const userAgent = navigator.userAgent;
+    // Проверяем, содержит ли userAgent строки, указывающие на мобильные устройства
+    if (/Mobi|Android/i.test(userAgent)) {
+        tap(e)
+        console.log("user is on mobile")
+    } else {
+        click(e)
+        console.log("user is on pc")
+    }
+}
+
 // для обработки нажатий на мыши
 mainButton.addEventListener('mousedown', () => {
     mainButton.style.setProperty("--size-button", "42vh");
 })
 
-mainButton.addEventListener('mouseup', click)
+mainButton.addEventListener('mouseup', isPhone)
 
 // для обработки нажатий на сенсоре
 mainButton.addEventListener('touchstart', () => {
     mainButton.style.setProperty("--size-button", "42vh");
 })
 
-mainButton.addEventListener('touchend', tap)
+mainButton.addEventListener('touchend', isPhone)
 
 mainText.addEventListener('click', () => {
     tokens = 0;

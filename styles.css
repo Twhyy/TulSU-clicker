@@ -141,3 +141,14 @@
     top: -5%;
     left: -5%;
 }
+
+.window {
+    height: 88vh;
+    width: 100vw;
+    background-color: silver;
+    opacity: 98%;
+}
+
+#info-window {
+    visibility: hidden;
+}
