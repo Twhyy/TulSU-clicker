@@ -34,6 +34,21 @@ function tap(e) {
     }
 }
 
+// функция, вызываемая при нажатии на главную кнопку (с мыши)
+function click(e) {
+    createParticle(e.clientX, e.clientY); // получение координат касания
+    mainButton.style.setProperty("--size-button", "40vh"); // анимация нажатия кнопки
+    tokens += 1; // зачисление токенов и обновление счётчика
+    tokenCount.innerHTML = tokens;
+    if (isVibrate) { // проверка на вибрацию
+        navigator.vibrate(100);
+    }
+    if (isVolume) { // проверка на звук
+        // audio.play();
+        tapSound()
+    }
+}
+
 // функция, которая создает частицу
 function createParticle(x, y) {
     const particle = document.createElement("particle");
@@ -57,6 +72,14 @@ function createParticle(x, y) {
     }
 }
 
+// для обработки нажатий на мыши
+mainButton.addEventListener('mousedown', () => {
+    mainButton.style.setProperty("--size-button", "42vh");
+})
+
+mainButton.addEventListener('mouseup', click)
+
+// для обработки нажатий на сенсоре
 mainButton.addEventListener('touchstart', () => {
     mainButton.style.setProperty("--size-button", "42vh");
 })
