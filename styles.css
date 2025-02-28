@@ -143,10 +143,19 @@
 }
 
 .window {
+    position: absolute;
     height: 88vh;
     width: 100vw;
     background-color: silver;
     opacity: 98%;
+}
+
+#upgrade-window {
+    visibility: hidden;
+}
+
+#tasks-window {
+    visibility: hidden;
 }
 
 #info-window {

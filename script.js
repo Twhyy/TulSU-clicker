@@ -3,9 +3,12 @@ const bMain = document.querySelector('#b-main');
 const bUpgrade = document.querySelector('#b-upgrade');
 const bTasks = document.querySelector('#b-tasks');
 const bInfo = document.querySelector('#b-info');
+const upgradeWindow = document.querySelector('#upgrade-window');
+const tasksWindow = document.querySelector('#tasks-window');
+const infoWindow = document.querySelector('#info-window');
 const mainText = document.querySelector('#main-text');
+
 const tokenCount = document.getElementById("token-count");
-// let audio = new Audio("assets/tap_sound.mp3");
 
 let tokens = 0; //max =
 tokenCount.innerHTML = tokens;
@@ -14,8 +17,13 @@ let isVolume = true;
 
 // функция воспроизведение звука при нажатии на главную кнопку
 function tapSound() {
-    let audio = new Audio("assets/tap_sound.mp3");
-    audio.autoplay = true;
+    if (isVibrate) { // проверка на вибрацию
+        navigator.vibrate(100);
+    }
+    if (isVolume) { // проверка на звук
+        let audio = new Audio("assets/tap_sound.mp3");
+        audio.autoplay = true;
+    }
 }
 
 // функция, вызываемая при нажатии на главную кнопку
@@ -25,13 +33,7 @@ function tap(e) {
     mainButton.style.setProperty("--size-button", "40vh"); // анимация нажатия кнопки
     tokens += 1; // зачисление токенов и обновление счётчика
     tokenCount.innerHTML = tokens;
-    if (isVibrate) { // проверка на вибрацию
-        navigator.vibrate(100);
-    }
-    if (isVolume) { // проверка на звук
-        // audio.play();
-        tapSound()
-    }
+    tapSound()
 }
 
 // функция, вызываемая при нажатии на главную кнопку (с мыши)
@@ -102,4 +104,33 @@ mainButton.addEventListener('touchend', isPhone)
 mainText.addEventListener('click', () => {
     tokens = 0;
     tokenCount.innerHTML = tokens;
+    tapSound();
+})
+
+bMain.addEventListener('click', () => {
+    upgradeWindow.style.visibility = "hidden";
+    tasksWindow.style.visibility = "hidden";
+    infoWindow.style.visibility = "hidden";
+    tapSound();
+})
+
+bUpgrade.addEventListener('click', () => {
+    upgradeWindow.style.visibility = "visible";
+    tasksWindow.style.visibility = "hidden";
+    infoWindow.style.visibility = "hidden";
+    tapSound();
+})
+
+bTasks.addEventListener('click', () => {
+    upgradeWindow.style.visibility = "hidden";
+    tasksWindow.style.visibility = "visible";
+    infoWindow.style.visibility = "hidden";
+    tapSound();
+})
+
+bInfo.addEventListener('click', () => {
+    upgradeWindow.style.visibility = "hidden";
+    tasksWindow.style.visibility = "hidden";
+    infoWindow.style.visibility = "visible";
+    tapSound();
 })
