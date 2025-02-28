@@ -7,6 +7,8 @@ const upgradeWindow = document.querySelector('#upgrade-window');
 const tasksWindow = document.querySelector('#tasks-window');
 const infoWindow = document.querySelector('#info-window');
 const mainText = document.querySelector('#main-text');
+const bVibrate = document.querySelector('#vibrate-button');
+const bSound = document.querySelector('#sound-button');
 
 const tokenCount = document.getElementById("token-count");
 
@@ -133,4 +135,14 @@ bInfo.addEventListener('click', () => {
     tasksWindow.style.visibility = "hidden";
     infoWindow.style.visibility = "visible";
     tapSound();
+})
+
+bVibrate.addEventListener('click', () => {
+    tapSound();
+    isVibrate = !isVibrate;
+})
+
+bSound.addEventListener('click', () => {
+    tapSound();
+    isVolume = !isVolume;
 })

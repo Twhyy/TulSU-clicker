@@ -22,6 +22,18 @@
     background-color: #f00;
 }
 
+#sound-button {
+    right: 3%;
+    height: 90%;
+    width: 15%;
+}
+
+#vibrate-button {
+    right: 21%;
+    height: 90%;
+    width: 15%;
+}
+
 #info-block {
     text-align: center;
     position: absolute;
